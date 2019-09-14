@@ -1,0 +1,33 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:TOEICVirtualExam">
+    <Style x:Key="AnswerSheetBorder" TargetType="{x:Type Border}">
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="BorderThickness" Value="0,0,2,0"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect
+                    Color="Gray"
+                    BlurRadius="1"
+                    ShadowDepth="1"
+                    />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ToolBorder" TargetType="{x:Type Border}">
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="BorderThickness" Value="1,0,0,1"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect
+                    Color="Gray"
+                    BlurRadius="1"
+                    ShadowDepth="2"
+                    />
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    
+</ResourceDictionary>

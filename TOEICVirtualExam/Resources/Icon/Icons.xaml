@@ -1,0 +1,7 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:TOEICVirtualExam">
+    <Image x:Key="BackIcon" Source="icon_back.png" />
+    <BitmapImage x:Key="StartIcon" UriSource="icon_start.png"/>
+    <Image x:Key="InsertIcon" Source="icon_insert.png"/>
+</ResourceDictionary>

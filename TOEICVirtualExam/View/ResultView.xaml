@@ -1,0 +1,132 @@
+﻿<Window x:Class="TOEICVirtualExam.ResultView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TOEICVirtualExam"
+        mc:Ignorable="d"
+        Title="ResultView" Height="450" Width="450"
+        DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}"
+        >
+    <ScrollViewer Margin="10,0,0,0" VerticalScrollBarVisibility="Hidden">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="300"/>
+            </Grid.RowDefinitions>
+            
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="350"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Style="{StaticResource ResultTitle}" Text="Total:"/>
+                <TextBlock x:Name="TotalScore" Grid.Column="1" Style="{StaticResource ResultTitle}" />
+            </Grid>       
+            
+            <Grid Grid.Row="1">
+                <TextBlock Style="{StaticResource ResultTitle}" Text="Listening:"/>
+            </Grid>
+            
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="350"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource subTitle}" Text="Correct Answer :" />
+                <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource subTitle}" Text="Score :" />
+                
+                <TextBlock x:Name="ListeningCorrectAnswer" Grid.Row="0" Grid.Column="1" Style="{StaticResource subTitle}"/>
+                <TextBlock x:Name="ListeningScore" Grid.Row="1" Grid.Column="1" Style="{StaticResource subTitle}"/>
+            </Grid>
+            
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="350"/>
+                </Grid.ColumnDefinitions>
+                <DataGrid x:Name="ListeningAnswer" ItemsSource="{Binding ListeningResult}" Grid.Column="0" 
+                        CanUserAddRows="False" 
+                        AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="*" Binding="{Binding Number}" Header="Number"/>
+                        <DataGridTextColumn Width="*" Binding="{Binding Correct}" Header="Correct"/>
+                        <DataGridTextColumn Width="*" Binding="{Binding YourChoice}" Header="Your Choice">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsCorrect}" Value="True">
+                                            <Setter Property="Background" Value="Green"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding IsCorrect}" Value="False">
+                                            <Setter Property="Background" Value="Red"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+            
+            <Grid Grid.Row="4">
+                <TextBlock Style="{StaticResource ResultTitle}" Text="Reading:"/>
+            </Grid>
+            
+            <Grid Grid.Row="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="350"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource subTitle}" Text="Correct Answer :" />
+                <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource subTitle}" Text="Score :" />
+
+                <TextBlock x:Name="ReadingCorrectAnswer" Grid.Row="0" Grid.Column="1" Style="{StaticResource subTitle}"/>
+                <TextBlock x:Name="ReadingScore" Grid.Row="1" Grid.Column="1" Style="{StaticResource subTitle}"/>
+            </Grid>
+            
+            <Grid Grid.Row="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="350"/>
+                </Grid.ColumnDefinitions>
+                <DataGrid x:Name="ReadingAnswer" ItemsSource="{Binding ReadingResult}" Grid.Column="0"
+                        CanUserAddRows="False" 
+                        AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="*" Binding="{Binding Number}" Header="Number"/>
+                        <DataGridTextColumn Width="*" Binding="{Binding Correct}" Header="Correct"/>
+                        <DataGridTextColumn Width="*" Binding="{Binding YourChoice}" Header="Your Choice">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsCorrect}" Value="True">
+                                            <Setter Property="Background" Value="Green"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding IsCorrect}" Value="False">
+                                            <Setter Property="Background" Value="Red"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+            
+        </Grid>
+    </ScrollViewer>
+</Window>

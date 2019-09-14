@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="TOEICVirtualExam.Answer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TOEICVirtualExam"
+             mc:Ignorable="d" 
+             Height="25"
+             Width="200">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="40"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="QuestionNumberTextBlock" Grid.Column="0" Style="{StaticResource QuestionNumberTextBlock}" />
+        <RadioButton Style="{StaticResource AnswerRadioButton}" x:Name="A" Grid.Column="1">A</RadioButton>
+        <RadioButton Style="{StaticResource AnswerRadioButton}" x:Name="B" Grid.Column="2">B</RadioButton>
+        <RadioButton Style="{StaticResource AnswerRadioButton}" x:Name="C" Grid.Column="3">C</RadioButton>
+        <RadioButton Style="{StaticResource AnswerRadioButton}" x:Name="D" Grid.Column="4">D</RadioButton>
+    </Grid>
+</UserControl>

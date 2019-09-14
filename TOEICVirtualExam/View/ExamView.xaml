@@ -1,0 +1,69 @@
+﻿<Window x:Class="TOEICVirtualExam.ExamView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TOEICVirtualExam"
+        mc:Ignorable="d"
+        Title="ExamView" 
+        WindowState="Maximized" 
+        Loaded="Window_Loaded"
+        WindowStyle="None">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="Back" 
+                        Style="{StaticResource BackButton}" 
+                        Grid.Column="0"
+                        Click="Back_Click"
+                        />
+            </Grid>
+            <TextBlock x:Name="Timer" Grid.Column="1" Style="{StaticResource CountTextBlock}"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <TabControl>
+                <TabItem Header="Listening">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <local:AnswerSheet 
+                            Grid.Column="0"
+                            x:Name="ListeningTestAnswers"
+                            />
+
+                        <WebBrowser x:Name="ListeningTest" Grid.Column="1" />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Reading">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <local:AnswerSheet 
+                            Grid.Column="0"
+                            x:Name="ReadingTestAnswers"
+                            />
+
+                        <WebBrowser x:Name="ReadingTest" Grid.Column="1" />
+                    </Grid>
+                </TabItem>
+            </TabControl>            
+        </Grid>
+    </Grid>
+</Window>
