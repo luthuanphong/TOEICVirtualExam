@@ -59,7 +59,7 @@ namespace TOEICVirtualExam
             {
                 ResultItem item = new ResultItem()
                 {
-                    Number = 1,
+                    Number = i,
                     Correct = readingCorrectAnswer[i - 1],
                     YourChoice = readingAnswer[i]
                 };
